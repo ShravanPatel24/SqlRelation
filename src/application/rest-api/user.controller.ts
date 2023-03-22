@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common'
+import { Body, Controller, Get, Post } from '@nestjs/common'
 import { IMediator, Result } from '@softobiz-df/shared-lib'
 import { UserCreateCommand } from '../use-cases/user/commands/user/user.cmd'
 import { UserCreateResponseType } from '../use-cases/user/commands/user/user.response.type'

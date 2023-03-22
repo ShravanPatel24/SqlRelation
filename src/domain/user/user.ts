@@ -1,10 +1,9 @@
 import { AggregateRoot, eDataSource, GenericAppError, Result, UniqueEntityID } from '@softobiz-df/shared-lib'
-import { Product } from '../product'
-import { UserName } from './user-name'
+import { Product, ProductList } from '../product'
 
 interface UserProps {
-	name: UserName
-	products: Product[]
+	name: string
+	products: ProductList
 }
 export class User extends AggregateRoot<UserProps> {
 	//#region member variables
@@ -22,15 +21,15 @@ export class User extends AggregateRoot<UserProps> {
 	}
 	//#endregion
 	public get name(): string {
-		return this.props.name.UserName
+		return this.props.name
 	}
 	//#region private setters
-	private setName(name: UserName) {
+	private setName(name: string) {
 		this._props.name = name
 		return Result.ok(this)
 	}
 	//#endregion
-	private setProduct(products: Product[]) {
+	private setProduct(products: ProductList) {
 		for (const product of products) {
 			if (!(product instanceof Product)) {
 				return Result.fail(new GenericAppError.DomainError('The customer name cannot hold less than five alphabets'))

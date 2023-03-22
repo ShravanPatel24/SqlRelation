@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne } from 'typeorm'
 import { BaseModel } from './base.model'
 import { UserModel } from './user.model'
 
-@Entity({ name: 'Product' })
+@Entity({ name: 'SProduct' })
 export class ProductModel extends BaseModel {
 	//#region constructors
 	public constructor(init?: Partial<ProductModel>) {
@@ -12,8 +12,8 @@ export class ProductModel extends BaseModel {
 	//#endregion
 
 	@Column()
-	public product_name: string
+	public name: string
 
-	@ManyToOne(() => UserModel, (user) => user.products)
-	user: UserModel
+	@ManyToOne(() => UserModel, (user) => user.uuid)
+	public user: UserModel
 }

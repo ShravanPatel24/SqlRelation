@@ -31,6 +31,12 @@ export class UserSqlRepository implements IUserRepository {
 		await this._entityManager.transaction(async (em) => {
 			await em.save(persistence)
 		})
+		if (persistence.products) {
+			await this._entityManager.save(persistence.products)
+		}
+		// await this._entityManager.transaction(async (em) => {
+		// 	await em.save(persistence)
+		// })
 		return Result.ok(input)
 	}
 	exists(input: User): Promise<Result<boolean>> {
