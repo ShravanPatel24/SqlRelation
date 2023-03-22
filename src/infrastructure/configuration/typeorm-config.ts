@@ -18,7 +18,7 @@ const typeormConfigOptions: TypeOrmModuleOptions = {
 		migrationsDir: 'src/infrastructure/data-access/sql-repositories/migrations',
 	},
 	autoLoadEntities: true,
-	synchronize: false,
+	synchronize: true,
 	logging: true,
 	logger: 'file',
 }
