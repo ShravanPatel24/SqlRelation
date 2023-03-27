@@ -1,4 +1,3 @@
-
 export interface IErrorProcessingService {
-    getErrorResponse();
+	getErrorResponse()
 }
